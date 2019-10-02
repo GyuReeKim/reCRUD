@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 
 {% block body %}
-  <form action="/todos/create/">
-    <input type="text" name="title">
-    <input type="date" name="duedate">
-    <input type="submit">
+  <form action="/todos/create/" class="mx-1 my-1">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
+    </div>
+    <div class="form-group">
+      <label for="duedate">Due Date</label>
+      <input type="date" class="form-control" id="duedate" name="duedate" placeholder="Enter Due Date">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 {% endblock %}

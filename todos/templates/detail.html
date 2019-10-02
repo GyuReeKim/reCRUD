@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="card mx-1 my-1" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{todo.title}}</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+        <p class="card-text">{{todo.due_date}}</p>
+        <a href="/todos/{{todo.id}}/delete/" class="btn btn-danger">삭제</a>
+        <a href="/todos/{{todo.id}}/edit/" class="btn btn-warning">수정</a>
+      </div>
+    </div>
+{% endblock %}

@@ -2,8 +2,24 @@
 
 {% block body %}
   <h2>여기는 인덱스입니다.</h2>
-  {% for todo in todos %}
-    <h5>{{todo.due_date}} : {{todo.title}}</h5>
-    <a href="/todos/{{todo.id}}/delete/">삭제</a>
-  {% endfor %}
+  <div class="row">
+    {% for todo in todos %}
+      <div class="card mx-1 my-1" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{todo.title}}</h5>
+          <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+          <p class="card-text">{{todo.due_date|date:'Y년 m월 d일'}}</p>
+          <a href="/todos/{{todo.id}}/delete/" class="btn btn-danger">삭제</a>
+          <a href="/todos/{{todo.id}}/edit/" class="btn btn-warning">수정</a>
+          <a href="/todos/{{todo.id}}/detail/" class="btn btn-primary">상세보기</a>
+        </div>
+      </div>
+    {% empty %}
+      <div class="card mx-1 my-1" style="width: 18rem;">
+        <div class="card-body">
+          <a href="/todos/new/" class="btn btn-primary">New</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
